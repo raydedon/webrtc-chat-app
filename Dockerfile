@@ -1,16 +1,16 @@
-FROM node:latest
+FROM node:14
 
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
-COPY package-lock.json /usr/src/app/
+COPY package.json ./
+COPY package-lock.json ./
 
 RUN npm ci
 
-COPY . /usr/src/app
+COPY . ./
 
-EXPOSE 3000
+EXPOSE 3010
 
 CMD npm run start
